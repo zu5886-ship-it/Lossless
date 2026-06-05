@@ -57,7 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loginBtn.addEventListener('click', () => {
-        window.location.href = '/api/auth';
+        if (window.location.protocol === 'file:') {
+            window.location.href = 'https://canvas.echomusic.fun/api/auth';
+        } else {
+            window.location.href = '/api/auth';
+        }
     });
 
     logoutBtn.addEventListener('click', () => {
